@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_unite_delete', {'id': tunite.id}) }}" onsubmit="return confirm('Tena ho fafana marina ve?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ tunite.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+</form>

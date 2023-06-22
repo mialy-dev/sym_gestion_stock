@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1>Ajouter à nouveau</h1>
+
+    {{ include('famille/_form.html.twig') }}
+
+    <a class="btn btn-outline-success" href="{{ path('app_famille_index') }}">Retour à la listes</a>
+{% endblock %}

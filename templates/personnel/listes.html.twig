@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+	<div class="col-md-8">
+		<div class="card">
+			<div class="card-header">
+				<h5>Listes des Personnel</h5>
+				<br>
+				<br>
+				<a class="btn btn-primary" href="{{ path('app_personnel') }}">Nouveau</a>
+			</div>
+			<div class="card-body table-border-style">
+				<div class="table-responsive">
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th>Departement</th>
+								<th>Nom</th>
+								<th>Prenom</th>
+								<th>Email</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for listes in listes %}
+								<tr>
+									<td>{{ listes.getIdDepartement().departement }}</td>
+									<td>{{ listes.nom }}</td>
+									<td>{{ listes.prenom }}</td>
+									<td>{{ listes.email }}</td>
+									<td></td>
+								</tr>
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

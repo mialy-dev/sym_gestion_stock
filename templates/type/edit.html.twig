@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1>Modifier type</h1>
+
+    {{ include('type/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a class="btn btn-outline-warning" href="{{ path('app_type_index') }}">Retour aux listes</a>
+
+    {{ include('type/_delete_form.html.twig') }}
+{% endblock %}

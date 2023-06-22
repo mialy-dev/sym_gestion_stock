@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1>Famille</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tfamille.id }}</td>
+            </tr>
+            <tr>
+                <th>Famille</th>
+                <td>{{ tfamille.famille }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-warning" href="{{ path('app_famille_index') }}">Retour aux listes</a>
+
+    <a class="btn btn-outline-primary" href="{{ path('app_famille_edit', {'id': tfamille.id}) }}">Voir</a>
+
+    {{ include('famille/_delete_form.html.twig') }}
+{% endblock %}

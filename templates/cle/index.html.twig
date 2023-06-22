@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+	<br><br>
+	<div class="row">
+
+		<div class="col-lg-8">
+
+			<div class="card">
+				<div class="card-header">
+					<h5>LISTES DES CLES DISPONIBLES</h5><br><br>
+					<a href="{{ path('app_cle_new') }}" class="btn btn-primary mb-2">Nouveau</a>
+				</div>
+				<div class="card-body table-border-style">
+					<div class="table-responsive">
+						<table class="table table-dark">
+							<thead>
+								<tr>
+									<th>Identification</th>
+									<th>Nom du clé</th>
+									<th class="text-center">Option</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for t_cle in t_cles %}
+									<tr>
+										<td>{{ t_cle.id }}</td>
+										<td>{{ t_cle.nom }}</td>
+										<td class="text-center">
+											<a href="{{ path('app_cle_show', {'id': t_cle.id}) }}" class="btn btn-success">Voir</a>
+											<a href="{{ path('app_cle_edit', {'id': t_cle.id}) }}" class="btn btn-danger">Modifier</a>
+										</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="3">il n'y a pas encore de donnée</td>
+										<br>
+										<br>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		</div>
+
+
+
+{% endblock %}

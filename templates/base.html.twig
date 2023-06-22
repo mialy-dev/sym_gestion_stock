@@ -1,19 +1,237 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="fr">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+    <title>E-STOCK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="{{ asset('assets/images/LTPGCM') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+</head>
+
+<body class="">
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <nav class="pcoded-navbar  ">
+        <div class="navbar-wrapper  ">
+            <div class="navbar-content scroll-div ">
+
+                <div class="">
+                    <div class="main-menu-header">
+                        <img class="img-radius" src="{{ asset('assets/images/user/mimi.jpg') }}" alt="User-Profile-Image">
+                        <div class="user-details">
+                            <span>Mialy RANDRIANASOLO</span>
+                            <div id="more-details">super admin<i class="fa fa-chevron-down m-l-5"></i></div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="nav-user-link">
+                        <ul class="list-unstyled">
+                            <li class="list-group-item"><a href="user-profile.html"><i class="feather icon-user m-r-5"></i>Voir le profil</a></li>
+                            <li class="list-group-item"><a href="#!"><i class="feather icon-settings m-r-5"></i>Paramètre</a></li>
+                            <li class="list-group-item"><a href="auth-normal-sign-in.html"><i class="feather icon-log-out m-r-5"></i>Se deconnecter</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="nav pcoded-inner-navbar ">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Barre de Navigation</label>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('app_accueil') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Accueil</span></a>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Paramètrages</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ path('app_cle_index') }}">Cle</a></li>
+                            <li><a href="{{ path('app_classe_index') }}">Classe</a></li>
+                            <li><a href="{{ path('app_departement_index') }}">Département</a></li>
+                            <li><a href="{{ path('app_type_new') }}">Type de produit</a></li>
+                            <li><a href="{{ path('app_famille_index') }}">Famille</a></li>
+                            <li><a href="{{ path('app_unite_new') }}">Unite</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>LES TRAVAILS DU GERANT</label>
+                    </li>
+
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Option des clés</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ path('app_cle_entrer_retour') }}">Prendre et retour</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Etudiant</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ path('app_etudiant') }}">Ajouter</a></li>
+                            <li><a href="{{ path('app_etudiant_liste') }}">Listes</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Personnel</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ path('app_personnel') }}">Ajouter</a></li>
+                            <li><a href="{{ path('app_personnel_listes') }}">Listes</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Stocks</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ path('app_stock') }}">Ajouter une produit</a></li>
+                            <li><a href="{{ path('app_stock_listes') }}">Listes</a></li>
+                            <li><a href="{{path('app_stock_listes_utiliser')  }}">Utilisation</a></li> 
+                            <li><a href="{{ path('app_stock_listes_emprunt') }}">Emprunt et retour</a></li>
+                            <li><a href="{{ path('app_stock_emprunter_tout') }}"> Listes Emprunt et retour</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Sanction</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ path('app_sanction_create') }}">Ajout</a></li>
+                            <li><a href="{{ path('app_sanction_listes') }}">Liste</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="" class="logo">
+                <img src="{{ asset('assets/images/logo-icon.png') }}" alt="" class="logo-thumb">//soloina logo ltpgcm
+            </a>
+            <a href="#!" class="mob-toggler">
+                <i class="feather icon-more-vertical"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
+                    <div class="search-bar">
+                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
+                        <button type="button" class="close" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="icon feather icon-bell"></i>
+                            <span class="badge badge-pill badge-danger">5</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right notification">
+                            <div class="noti-head">
+                                <h6 class="d-inline-block m-b-0">Notifications</h6>
+                                <div class="float-right">
+                                    <a href="#!" class="m-r-10">mark as read</a>
+                                    <a href="#!">clear all</a>
+                                </div>
+                            </div>
+                            <ul class="noti-body">
+                                <li class="n-title">
+                                    <p class="m-b-0">NEW</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <p><strong>Mialy RANDRIANASOLO</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                            <p>New ticket Added</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="n-title">
+                                    <p class="m-b-0">EARLIER</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
+                                            <p>currently login</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="noti-footer">
+                                <a href="#!">show all</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+
+                    <div class="dropdown drp-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="feather icon-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-notification">
+                            <div class="pro-head">
+                                <img src="{{ asset('assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">
+                                <span>John Doe</span>
+                                <a href="auth-signin.html" class="dud-logout" title="Logout">
+                                    <i class="feather icon-log-out"></i>
+                                </a>
+                            </div>
+                            <ul class="pro-body">
+                                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i>Profil</a></li>
+                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i>Se deconnecter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
+        
+        {% block content %}{% endblock %}
+
+        </div>
+    </div>
+
+
+
+
+    <script src="{{ asset('assets/js/vendor-all.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/apexcharts.min.js') }}"></script>
+
+</body>
+
 </html>

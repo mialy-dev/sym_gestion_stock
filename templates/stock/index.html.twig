@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+<form method="POST">
+    <div class="mb-6">
+        <label for="exampleFormControlInput1" class="form-label">Designation</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="designation">
+        <select class="form-control" aria-label="Default select example" name="famille">
+            {% for listeF in listeF %}
+            <option value="{{ listeF.id }}">{{ listeF.famille }}</option>
+            {% endfor %}
+        </select>
+        <select class="form-control" aria-label="Default select example" name="type">
+            {% for listety in listety %}
+            <option value="{{ listety.id }}">{{ listety.type }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-6">
+        <label for="exampleFormControlInput1" class="form-label">Marque ou Type</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="identification">
+    </div>
+    <div class="mb-6">
+        <label for="exampleFormControlInput1" class="form-label">Quantité</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" name="quantite">
+        <select class="form-control" aria-label="Default select example" name="unite">
+            {% for listeU in listeU %}
+            <option value="{{ listeU.id }}">{{ listeU.unite }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-6">
+        <label for="exampleFormControlInput1" class="form-label">Date</label>
+        <input type="date" class="form-control" id="exampleFormControlInput1" name="date_entrer">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Remarque</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="remarque">
+    </div>
+    <button type="submit" class="btn btn-success" name="enregistrer">Enregistrer</button>
+    <br>
+    <br>
+    <a class="btn btn-info w-50" href="{{ path('app_stock_listes') }}">Listes des stocks</a>
+</form>
+{% endblock %}

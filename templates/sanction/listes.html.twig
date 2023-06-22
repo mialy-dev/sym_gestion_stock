@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+
+	<div class="col-md-8">
+		<div class="card">
+			<div class="card-header">
+				<h1>LISTES DES ETUDIANTS SANCTIONNER</h1>
+				<br>
+				<br>
+				<a class="btn btn-outline-info" href="{{ path('app_sanction_create') }}">Nouveau</a>
+			</div>
+			<div class="card-body table-border-style">
+				<div class="table-responsive">
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th>Elève</th>
+								<th>Date</th>
+								<th>Heure</th>
+								<th>Durée</th>
+								<th>Motif</th>
+								<th>Responsable</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for sanction in listes %}
+								<pre>
+									{{ dump(sanction.Etudiant) }}
+								<pre>
+								{% set Etudiant = sanction.Etudiant.owner %}
+								{% set Personnel = sanction.Personnel.owner %}
+								<tr>
+									{#
+									<td>{{ Etudiant.nom }} {{ Etudiant.prenom }}</td>
+									#}
+									<td></td>
+									
+									
+								</tr>
+								{#
+								<tr>
+                                    <td>{{ listes.getIdEtudiant().Etudiant }}</td>
+									<td>{{ listes.date_sanction}}</td>
+									<td>{{ listes.heure_sanction }}</td>
+									<td>{{ listes.duree }}</td>
+									<td>{{ listes.motif }}</td>
+                                    <td>{{ listes.getIdPersonnel().personnel }}</td>
+
+
+									<td></td>
+								</tr>
+								#}
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

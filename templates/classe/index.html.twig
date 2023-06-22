@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Tclasse index</h1>
+<a href="{{ path('app_classe_new') }}" class="btn btn-warning">Ajouter</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Classe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tclasse in tclasses %}
+            <tr>
+                <td>{{ tclasse.id }}</td>
+                <td>{{ tclasse.classe }}</td>
+                <td>
+                    <a href="{{ path('app_classe_show', {'id': tclasse.id}) }}" class="btn btn-success">Voir</a>
+				    <a href="{{ path('app_classe_edit', {'id': tclasse.id}) }}" class="btn btn-danger">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

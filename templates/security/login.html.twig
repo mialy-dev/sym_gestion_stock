@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('login/style.css') }}">
+    <title>Se connecter</title>
+</head>
+
+<body>
+    <div class="alert alert-danger"></div>
+
+    <div class="box">
+        <span class="borderLine"></span>
+        <form method="POST">
+            <h2>Se connecter</h2>
+            <div class="inputBox">
+                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+                <span>Nom d'utilisateur</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                <span>Mot de passe</span>
+                <i></i>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div class="links">
+                <a href="#">Oublié ?</a>
+                <a href="#">J'ai deja un compte</a>
+            </div>
+            <input class="valider" type="submit" value="Se connecter">
+    </div>
+    </form>
+</body>
+{% if error %}
+<script>
+    alert("{{  error.messageKey|trans(error.messageData,'security')}} ");
+</script>
+{% endif %}
+
+</html>

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+<form method="POST">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Personnel</label>
+        <select class="form-control" aria-label="Default select example" name="personnel">
+            {% for listes in listes %}
+            <option value="{{ listes.id }}">{{ listes.nom }} {{ listes.prenom }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="exampleFormControlInput1" class="form-label">Date emprunt</label>
+        <input type="date" class="form-control" id="exampleFormControlInput1" name="date">
+
+        <label for="exampleFormControlInput1" class="form-label">heure emprunt</label>
+        <input type="time" class="form-control" id="exampleFormControlInput1" name="heure">
+
+        <label for="exampleFormControlInput1" class="form-label">remarque</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="remarque">
+
+        <label for="exampleFormControlInput1" class="form-label">quantite prise</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" name="quantite">
+
+    </div>
+    <button type="submit" class="btn btn-success" name="enregistrer">Enregistrer</button>
+    <br><br>
+    <a class="btn btn-info w-50" href="">Listes des emprunts</a>
+</form>
+{% endblock %}

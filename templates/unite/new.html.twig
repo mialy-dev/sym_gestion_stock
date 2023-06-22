@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1>nouveau unite</h1>
+
+    {{ include('unite/_form.html.twig') }}
+
+    <a class="btn btn-outline-warning" href="{{ path('app_unite_index') }}">Retour aux listes</a>
+{% endblock %}

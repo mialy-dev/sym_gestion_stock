@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1>Créer une table departement</h1>
+
+    {{ include('departement/_form.html.twig') }}
+
+    <a class="btn btn-info" href="{{ path('app_departement_index') }}" >Retour aux listes</a>
+{% endblock %}
+ 

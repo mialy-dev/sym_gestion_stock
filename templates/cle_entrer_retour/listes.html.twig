@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+<a href="{{ path('app_cle_entrer_retour') }}" class="btn btn-outline-info">Ajouter</a>
+
+
+	<div class="col-md-8">
+		<div class="card">
+			<div class="card-header">
+				<h5>Listes des clés en sortie</h5>
+			</div>
+			<div class="card-body table-border-style">
+				<div class="table-responsive">
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th>Cle</th>
+								<th>Nom et prenom</th>
+								<th>heure de sortie</th>
+								<th>heure retour</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for listes in listes %}
+								<tr>
+									<td>{{ listes.getIdCle().getNom() }}</td>
+									<td>{{ listes.getIdPersonnel().getNom() }}
+										{{ listes.getIdPersonnel().getPrenom() }}</td>
+									<td>{{ listes.getHeureSortie()|date('H:i:s') }}</td>
+									{% if listes.getHeureRetour() %}
+										<td>{{ listes.getHeureRetour()|date('H:i:s') }}</td>
+									{% else %}
+										<td></td>
+									{% endif %}
+									<td>
+										<a class="btn btn-primary" href="{{ path('app_cle_entrer_retour_retourner',{id:listes.id}) }}">Retour</a>
+									</td>
+								</tr>
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

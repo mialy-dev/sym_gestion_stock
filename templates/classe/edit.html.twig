@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Modifier la Classe</h1>
+
+   {{ include('classe/_form.html.twig', {'button_label': 'Modifier'}) }} 
+   
+   {{ include('classe/_delete_form.html.twig') }}
+
+
+    <a href="{{ path('app_classe_index') }}" class="btn btn-info">Retour à la liste</a>
+
+   
+{% endblock %}

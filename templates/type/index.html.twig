@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1>FAMILLE</h1>
+    <a href="{{ path('app_type_new') }}" class="btn btn-warning">Créer à nouveau</a>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ttype in ttypes %}
+            <tr>
+                <td>{{ ttype.id }}</td>
+                <td>{{ ttype.type }}</td>
+                <td>
+                    <a href="{{ path('app_type_show', {'id': ttype.id}) }}" class="btn btn-outline-success">Voir</a>
+                    <a href="{{ path('app_type_edit', {'id': ttype.id}) }}" class="btn btn-outline-danger">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<h5>Listes des Emprunts</h5>
+				<br>
+				<br>
+			
+
+			</div>
+			<div class="card-body table-border-style">
+				<div class="table-responsive">
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th>Date emprunt</th>
+								<th>Heure emprunt</th>
+								<th>Heure retour</th>
+								<th>remarque</th>
+                                <th>Quantité</th>
+                                <th>personnel</th>
+                                <th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for listes in listes %}
+								<tr>
+									<td>{{ listes.dateEmprunt()|date('d/m/Y') }}</td>
+									<td>{{ listes.heureEmprunt()|date('H:m:s') }}</td>
+									<td>{{ listes.heureRetour()|date('H:m:s') }}</td>
+									<td>{{ listes.remarque }}</td>
+                                    <td>{{ listes.quantite }}</td>
+                                    <td>{{ listes.getIdPersonnel().getNom() }}</td>
+									<td>
+                                        <a href="{{ path('app_stock_listes_produit_retour',{id:listes.getIdPersonnel().id , ids: listes.getIdStock().id}) }}" class="btn btn-primary">retour</a>
+                                    </td>
+								</tr>
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

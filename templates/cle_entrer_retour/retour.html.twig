@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+	<form method="POST">
+		<div class="row">
+			<div class="col-md-6">=
+				<div class="form-group">
+					<label for="exampleInputPassword1">Heure de retour</label>
+					<input type="time" class="form-control" name="heure_retour">
+				</div>
+				<button type="submit" class="btn  btn-primary" name="enregistrer">Enregistrer</button> <br><br> <a class="btn btn-info w-50" href="{{ path('app_cle_entrer_retour_liste') }}">Listes des clés</a>
+			</div>
+		</div>
+	</form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h1>Listes Famille</h1>
+    <a href="{{ path('app_famille_new') }}" class="btn btn-warning">Créer à nouveau</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Famille</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tfamille in tfamilles %}
+            <tr>
+                <td>{{ tfamille.id }}</td>
+                <td>{{ tfamille.famille }}</td>
+                <td>
+                    <a href="{{ path('app_famille_show', {'id': tfamille.id}) }}" class="btn btn-outline-success">Voir</a>
+                    <a href="{{ path('app_famille_edit', {'id': tfamille.id}) }}" class="btn btn-outline-danger">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

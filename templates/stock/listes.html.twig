@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+	<div class="col-md-12" style="background-image:../public/images/dashborad-2.jpg ;">
+		<div class="card">
+			<div class="card-header">
+				<h5>Listes des Stocks</h5>
+				<br>
+				<br>
+				<a class="btn btn-primary" href="{{ path('app_stock_listes') }}">Nouveau</a>
+
+			</div>
+			<div class="card-body table-border-style">
+				<div class="table-responsive">
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th>Designation</th>
+								<th>Famille</th>
+								<th>Type</th>
+								<th>Marque</th>
+                                <th>Quantité</th>
+                                <th>Unité</th>
+                                <th>Date</th>
+                                <th>Remarque</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for listes in listes %}
+								<tr>
+									<td>{{ listes.designation }}</td>
+									<td>{{ listes.getIdFamille().famille }}</td>
+									<td>{{ listes.getIdType().type }}</td>
+                                    <td>{{ listes.identification }}</td>
+                                    <td>{{ listes.quantite }}</td>
+                                    <td>{{ listes.getIdUnite().unite }}</td>
+                                    <td>{{ listes.getDateEntrer()|date('d/m/Y') }}</td>
+                                    <td>{{ listes.remarque }}</td>
+									<td></td>
+								</tr>
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

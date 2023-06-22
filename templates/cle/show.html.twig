@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <h4>A propos de cette clés</h4>
+<div class="card-body table-border-style">
+					<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Identification</th>
+                <td>{{ t_cle.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom du clé</th>
+                <td>{{ t_cle.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+    <a href="{{ path('app_cle_index') }}" class="btn btn-dark w-50">Retour aux listes</a> <br>
+
+    <a href="{{ path('app_cle_edit', {'id': t_cle.id}) }}" class="btn btn-info w-50">Modifier</a> <br>
+
+    {{ include('cle/_delete_form.html.twig') }}
+{% endblock %}

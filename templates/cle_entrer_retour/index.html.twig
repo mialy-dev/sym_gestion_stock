@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<h1>UTILISATION DES CLES</h1>
+	<form method="POST">
+		<div class="row">
+			<div class="col-md-6">
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Date de prise</label>
+					<input type="date" class="form-control" name="date_prise" id="exampleInputEmail1">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Heure de sortie</label>
+					<input type="time" class="form-control" name="heure_sortie">
+				</div>
+				<button type="submit" class="btn  btn-primary" name="enregistrer">Emprunter</button> <br><br> <a class="btn btn-info w-50" href="{{ path('app_cle_entrer_retour_liste') }}">Listes des clés</a>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Le Personnel Responsable</label>
+					<select class="form-control" id="exampleFormControlSelect1" name="personnel">
+						{% for listeP in listeP %}
+							<option value="{{ listeP.id }}">{{ listeP.nom }} {{ listeP.prenom }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Le Clé</label>
+					<select class="form-control" id="exampleFormControlSelect1" name="cle">
+                    {% for listeC in listeC %}
+						<option value="{{ listeC.id }}">{{ listeC.nom }}</option>
+                    {% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+	</form>
+{% endblock %}

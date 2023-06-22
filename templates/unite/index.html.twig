@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+    
+<form method="POST">
+    <input type="text" name="recherche">
+    <input type="submit" name="rechercher">
+</form>
+
+    <h1>LISTES DES UNITES</h1>
+    <a href="{{ path('app_unite_new') }}" class="btn btn-warning" >Créer à nouveau</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Unite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tunite in tunites %}
+            <tr>
+                <td>{{ tunite.id }}</td>
+                <td>{{ tunite.unite }}</td>
+                <td>
+                    <a href="{{ path('app_unite_show', {'id': tunite.id}) }}" class="btn btn-outline-success">Voir</a>
+                    <a href="{{ path('app_unite_edit', {'id': tunite.id}) }}" class="btn btn-outline-danger">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
