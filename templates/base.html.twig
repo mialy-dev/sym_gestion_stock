@@ -66,6 +66,32 @@
                             <li><a href="{{ path('app_cle_entrer_retour') }}">Prendre et retour</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Stocks</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ path('app_stock') }}">Ajouter une produit</a></li>
+                            <li><a href="{{ path('app_stock_listes') }}">Listes</a></li>
+                            <li><a href="{{path('app_stock_listes_utiliser')  }}">Utilisation</a></li> 
+                            <li><a href="{{ path('app_stock_listes_emprunt') }}">Emprunt et retour</a></li>
+                            <li><a href="{{ path('app_stock_emprunter_tout') }}"> Listes Emprunt et retour</a></li>
+                        </ul>
+                    </li>
+
+                     <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Stocks Sorties</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="#">Demande de stocks</a></li>
+                            <li><a href="#">Listes envoyer</a></li>
+                            <li><a href="#">Liste de stocks retours</a></li> 
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Bon de Commande</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="#">Commande en attente</a></li>
+                            <li><a href="#">Commande validé</a></li>
+                        </ul>
+                    </li>
 
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Etudiant</span></a>
@@ -80,17 +106,6 @@
                         <ul class="pcoded-submenu">
                             <li><a href="{{ path('app_personnel') }}">Ajouter</a></li>
                             <li><a href="{{ path('app_personnel_listes') }}">Listes</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Stocks</span></a>
-                        <ul class="pcoded-submenu">
-                            <li><a href="{{ path('app_stock') }}">Ajouter une produit</a></li>
-                            <li><a href="{{ path('app_stock_listes') }}">Listes</a></li>
-                            <li><a href="{{path('app_stock_listes_utiliser')  }}">Utilisation</a></li> 
-                            <li><a href="{{ path('app_stock_listes_emprunt') }}">Emprunt et retour</a></li>
-                            <li><a href="{{ path('app_stock_emprunter_tout') }}"> Listes Emprunt et retour</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
@@ -220,13 +235,13 @@
         <div class="pcoded-content">
         
         {% block content %}{% endblock %}
-
+        
         </div>
     </div>
 
 
 
-
+{% block script %}{% endblock %}
     <script src="{{ asset('assets/js/vendor-all.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>

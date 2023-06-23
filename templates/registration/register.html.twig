@@ -1,0 +1,69 @@
+{% extends "_partials/base.auth.html.twig" %}
+{% block content %}
+    {{ form_start(registrationForm) }}
+        <h2>Inscription</h2>
+        <div class="inputBox">
+                {{ form_widget(registrationForm.firstname, {
+                "label" : false,
+                'attr' : {
+                    'class' : "form-control"
+                }
+            }) }}
+            <span>Nom</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+                {{ form_widget(registrationForm.lastname, {
+                "label" : false,
+                'attr' : {
+                    'class' : "form-control"
+                }
+            }) }}
+            <span>Prénom</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+                {{ form_widget(registrationForm.username, {
+                "label" : false,
+                'attr' : {
+                    'class' : "form-control"
+                }
+            }) }}
+            <span>Nom d'utilisateur</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+                {{ form_widget(registrationForm.password, {
+                "label" : false,
+                'attr' : {
+                    'class' : "form-control"
+                }
+            }) }}
+            <span>Mot de passe</span>
+            <i></i>
+        </div>
+        <div class="links d-flex">
+            {{ form_widget(registrationForm.agreeTerms,{
+            "label" : false,
+            "attr" : {
+                'class' : "form-control"
+            }
+        }) }}
+			<a href="{{ path('app_login')}}">J'ai deja un compte</a>
+		</div>
+        <input type="submit" value="S'inscrire" class="valider"/>
+    {{ form_end(registrationForm) }}
+{% endblock %}
+
+{% block script %}
+    <script>
+        const allFormGroups = document.querySelectorAll('.form-group')
+        allFormGroups.forEach(FormGroup=>{
+           FormGroup.classList.replace("form-group","inputBox")
+        })
+        const box = document.querySelector('.box')
+        box.style.height ="565px"
+        const checked = document.querySelector('input[type="checkbox"]')
+        checked.style.marginTop = "13px"
+    </script>
+{% endblock %}

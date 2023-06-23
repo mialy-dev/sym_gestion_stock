@@ -15,8 +15,20 @@
             <div class="form-group">
                 {{ form_row(form.motif)}}
             </div>
+            <div class="form-group">
+                {{ form_row(form.etudiant)}}
+            </div>
         </div>
-        <button type="submit" class="btn  btn-primary" name="enregistrer">Enregistrer</button>
+        <button type="submit" class="btn  btn-primary ml-3" name="enregistrer">Enregistrer</button>
     </div>
     {{ form_end(form) }}
+{% endblock %}
+
+{% block script  %}
+    <script>
+        const allSelecter = document.querySelectorAll("select");
+        allSelecter.forEach((select)=>{
+            select.removeAttribute("multiple");
+        });
+    </script>
 {% endblock %}

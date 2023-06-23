@@ -24,13 +24,19 @@ class SanctionController extends AbstractController
     public function create
     (
         Request $request,
-        TsanctionRepository $tsanctionRepository
+        TsanctionRepository $tsanctionRepository,
+        TpersonnelRepository $tpersonnelRepository
     )
     {
         $sanction = new Tsanction();
         $form = $this->createForm(SanctionType::class, $sanction);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+            $user = $this->getUser();
+            $personnel = $tpersonnelRepository->find("username",$user->getUserIdentifier());
+            if(isset($personnel)){
+                $sanction->addPersonnel($personnel);
+            }
              $tsanctionRepository->add($sanction);
              return $this->redirectToRoute("app_sanction_listes");           
         }
